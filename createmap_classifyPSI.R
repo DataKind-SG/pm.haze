@@ -29,8 +29,8 @@ get_classification <- function(psi){
   }
   return(cl)
 }
-# d$Classification <- get_classification(d$Value) #to classify
-d$Classification <- get_classification(c(9,99,199,299,500)) #fake categories to test
+d$Classification <- get_classification(d$Value) #to classify
+# d$Classification <- get_classification(c(9,99,199,299,500)) #fake categories to test
 
 library(ggmap)
 sg_map <- get_map(location="Singapore", zoom=11) #google map
@@ -40,10 +40,12 @@ sg_map <- get_map(location="Singapore", zoom=11, source="stamen", maptype="toner
 plot(sg_map)
 
 sg_map <- qmap(location="Singapore", zoom=11, source="stamen", maptype="watercolor") #pretty map
+
 sg_map + 
-  annotate("rect", xmin=d$Longtitude-0.025, xmax=d$Longtitude+0.025, 
-           ymin=d$Latitude-0.025, ymax=d$Latitude+0.025,fill="grey80") +
-  geom_text(aes(Longtitude, Latitude, label=Value, col=Classification), data=d, size=10) +
-  scale_color_manual(values=c("green","blue","yellow","orange","red"))
+  # annotate("rect", xmin=d$Longtitude-0.025, xmax=d$Longtitude+0.025, 
+           # ymin=d$Latitude-0.025, ymax=d$Latitude+0.025,fill="grey80") +
+  geom_label(aes(Longtitude, Latitude, label=Value, col=Classification), data=d, size=10) +
+  scale_color_manual(values=c("Good"="green","Moderate"="blue","Unhealthy"="yellow","Very unhealthy"="orange","Hazardous"="red")) +
+  theme(legend.position = "")
   
   
