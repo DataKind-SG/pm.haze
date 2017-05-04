@@ -1,6 +1,8 @@
 # Helper functions for Shiny app
 library(ggmap)
 library(rvest)
+library(data.table)
+library(fasttime)
 
 # Parameter settings
 category_df = data.frame(pm25.low = c(0, 13, 56, 151, 251, 351),
@@ -9,8 +11,15 @@ category_df = data.frame(pm25.low = c(0, 13, 56, 151, 251, 351),
                          psi.high = c(50, 100, 200, 300, 400, 500) + 1, # Should be closed range
                          category = c("Good", "Moderate", "Unhealthy", "Very unhealthy", "Hazardous", "Hazardous"))
 haze_color_map = c("Good"="green","Moderate"="blue","Unhealthy"="yellow","Very unhealthy"="orange","Hazardous"="red")
-map_list = list(google = list(),
-                stamen = list())
+map_list = list()
+hist_file_name = "hist_readings.csv"
+if (! file.exists(hist_file_name)) {
+  cat("Creating new historical readings data base.")
+  writeLines("region,latitude,longitude,reading,timestamp", hist_file_name)
+}
+hist_df = fread(hist_file_name, header = TRUE,
+                colClasses = c("factor", "numeric", "numeric", "numeric", "character"))
+hist_df[, timestamp := as.POSIXct(timestamp, format = "%Y-%m-%d %H:%M:%S")]
 
 # Conversion functions
 
@@ -39,27 +48,35 @@ index_in_range = function(value, type) {
 }
 
 # Map functions
-get_SG_map = function(source, type) {
-  if ( !(type %in% names(map_list[[source]])) )
-    map_list[[source]][[type]] <<- get_map(location="Singapore", zoom=11, 
-                                           source=source, maptype=type)
-  map_list[[source]][[type]]
+get_SG_map = function(map_type) {
+  if ( !(map_type %in% names(map_list)) ) {
+    sp = strsplit(map_type, ":")[[1]]
+    source = sp[1]; type = sp[2]
+    map_list[[map_type]] <<- get_map(location="Singapore", zoom=11, 
+                                     source=source, maptype=type)
+  }
+  map_list[[map_type]]
 }
 
 # xml parsing
 get_latest_reading = function() {
+  hist_df[timestamp == max(timestamp), .SD, by = region]
+}
+
+update_hist_reading = function() {
   path <- "http://api.nea.gov.sg/api/WebAPI/?dataset=pm2.5_update&keyref=***REMOVED***"
   # read the data using rvest package
   out <- read_html(path)
   region <- out %>% html_nodes("id") %>% html_text
   latitude <- as.numeric(out %>% html_nodes("latitude") %>% html_text)
   longitude <- as.numeric(out %>% html_nodes("longitude") %>% html_text)
-  # Read the XML attribute "timestamp" from Node "Record"
-  timestamp  <- as.POSIXlt(out %>% html_nodes("record") %>% html_attr("timestamp"),
+  timestamp  <- as.POSIXct(out %>% html_nodes("record") %>% html_attr("timestamp"),
                            format = "%Y%m%d%H%M%S")
-  # Read the XML attribute "value" from Node "reading"
   reading  <- as.numeric( out %>% html_nodes("reading") %>% html_attr("value") )
-  # store the required info into a dataframe
-  df <- data.frame(region,latitude,longitude,reading, timestamp)
-  df
+  df <- data.table(region, latitude, longitude, reading, timestamp)
+  # Find if does not exist in hist_df and add
+  found = tail(duplicated(rbind(hist_df, df)), nrow(df))
+  hist_df <<- rbind(hist_df, df[!found, ])
+  write.table(x=df[!found, ], file=hist_file_name, append = TRUE, sep =",", row.names = FALSE, col.names = FALSE)
+  max(hist_df$timestamp)
 }
