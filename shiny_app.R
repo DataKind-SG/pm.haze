@@ -79,9 +79,13 @@ server <- function(input, output, session) {
   
   # Generates the time-series plot considering in the selected range and regions
   output$plot_ts = renderPlot({
-    if (!length(input$region))
-      return(ggplot())
+    validate(
+      need(length(input$region)>0, "Please select at least one region")
+    )
     plotDF = hist_df[(timestamp %between% input$t_range) & (region %in% c(input$region))]
+    validate(
+      need(nrow(plotDF)>0, "Data not recorded for selected time range")
+    )
     plotDF$Value = switch(input$type,
                           "PSI" = round(pm25_to_psi(plotDF$reading)),
                           "PM25" = plotDF$reading)
