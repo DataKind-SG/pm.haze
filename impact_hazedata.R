@@ -4,7 +4,8 @@ library(rvest)
 path <- "http://api.nea.gov.sg/api/WebAPI/?dataset=pm2.5_update&keyref=***REMOVED***"
 
 # read the data using rvest package
-out <- rvest::html(path)
+# out <- rvest::html(path) #rvest::html is depreceated
+out <- read_html(path)
 out
 
 region <- out %>% html_nodes("id") %>% html_text
