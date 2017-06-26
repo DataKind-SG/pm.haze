@@ -21,7 +21,6 @@ haze_color_map = c("Good"="green","Moderate"="blue","Unhealthy"="yellow","Very u
 # Variable to hold the maps downloaded using get_map. Dynamic storage prevents delay while refreshing
 map_list = list()
 
-
 # Historical update -------------------------------------------------------
 
 # Creates the hist_file_name if not found
@@ -62,7 +61,8 @@ get_SG_map = function(map_type) {
 
 # Updates hist_df and hist_file_name if new readings are obtained. Returns the latest timestamp in hist_df
 update_hist_reading = function() {
-  path <- "http://api.nea.gov.sg/api/WebAPI/?dataset=pm2.5_update&keyref=***REMOVED***"
+  path <- "http://api.nea.gov.sg/api/WebAPI/?dataset=pm2.5_update"
+  print(path)
   out <- read_html(path) # read the data using rvest package
   # # Un comment followin lines for later debugging
   # f = file("log.txt", "a")
