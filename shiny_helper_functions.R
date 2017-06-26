@@ -8,10 +8,13 @@ library(data.table)
 # The main file to store/read the values from
 hist_file_name = "hist_readings.csv"
 # Data frame with the range of values for different categories
+#####################################################
+###---Removed the +1 for pm25.high and psi.high---###
+#####################################################
 category_df = data.frame(pm25.low = c(0, 13, 56, 151, 251, 351),
-                         pm25.high = c(12, 55, 150, 250, 350, 500) + 1, # Should be closed range
+                         pm25.high = c(12, 55, 150, 250, 350, 500), # Should be closed range
                          psi.low = c(0, 51, 101, 201, 301, 401),
-                         psi.high = c(50, 100, 200, 300, 400, 500) + 1, # Should be closed range
+                         psi.high = c(50, 100, 200, 300, 400, 500), # Should be closed range
                          category = c("Good", "Moderate", "Unhealthy", "Very unhealthy", "Hazardous", "Hazardous"))
 # Map from the categories to the color to be used to print the label
 haze_color_map = c("Good"="green","Moderate"="blue","Unhealthy"="yellow","Very unhealthy"="orange","Hazardous"="red")
@@ -96,9 +99,12 @@ get_category = function(values, type) {
 }
 
 # Convinence function to find index in category_df
+#############################################################
+###----Added the equal sign so v<r[,2] becomes v<=r[,2]---###
+#############################################################
 index_in_range = function(value, type) {
   r = switch(type, 
              "PSI" = category_df[, c("psi.low", "psi.high")],
              "PM25" = category_df[, c("pm25.low", "pm25.high")])
-  sapply(value, function(v) which(v>=r[, 1] & v<r[, 2]))
+  sapply(value, function(v) which(v>=r[, 1] & v<=r[, 2])) 
 }
