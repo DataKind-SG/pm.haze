@@ -1,7 +1,7 @@
 library(rvest)
 
 # NEA URL with key
-path <- "http://api.nea.gov.sg/api/WebAPI/?dataset=pm2.5_update&keyref=***REMOVED***"
+path <- "http://api.nea.gov.sg/api/WebAPI/?dataset=pm2.5_update"
 
 # read the data using rvest package
 # out <- rvest::html(path) #rvest::html is depreceated
