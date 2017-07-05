@@ -18,6 +18,8 @@ RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubu
     rm -f version.txt ss-latest.deb
 
 RUN R -e "install.packages('ggmap')" && \
+    R -e "install.packages('ggplot2')" && \
+    R -e "install.packages('xml2')" && \
     R -e "install.packages('rvest')" && \
     R -e "install.packages('data.table')" && \
     R -e "install.packages(c('shiny', 'rmarkdown'), repos='http://cran.rstudio.com/')"
