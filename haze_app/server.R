@@ -7,42 +7,8 @@
 #    http://shiny.rstudio.com/
 #
 
-library(shiny)
-source("shiny_helper_functions.R")
-
-# Define UI for application that draws a histogram
-ui <- fluidPage(
-  
-  # Application title
-  titlePanel("PM Haze"),
-  
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-      radioButtons("type", "Select variable:", c("PSI", "PM25")),
-      uiOutput("ui_t_range"), # Slider with time range that is updated when new readings
-      selectInput("map_type", "Select map type:", 
-                  c(paste0("google:", c("terrain", "satellite", "roadmap", "hybrid")),
-                    paste0("stamen:", c("watercolor", "toner")))
-                  ),
-      checkboxGroupInput("region", "Select regions to plot",
-                         choices = c("rNO", "rCE", "rEA", "rWE", "rSO"),
-                         selected = c("rNO", "rCE", "rEA", "rWE", "rSO"))
-      
-    ),
-    
-    # Show a map plot of the values
-    mainPanel(
-      plotOutput("plot_map"),
-      plotOutput("plot_ts"),
-      textOutput("txt_update_info") # Shows the timestamp of latest reading available
-    )
-  )
-)
-
-# Define server logic required to draw a histogram
-server <- function(input, output, session) {
-  
+function(input, output, session) {
+  source("shiny_helper_functions.R")  
   # Helper function to calculate the time to next hour:00:00 + 5mins
   ms_to_next_update = function() (60 + 5 - minute(Sys.time()))*60*1000
   
@@ -97,7 +63,3 @@ server <- function(input, output, session) {
       ggtitle(paste("Historical trend of", input$type, "for selected region and time range"))
   })
 }
-
-# Run the application 
-shinyApp(ui = ui, server = server)
-
