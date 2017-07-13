@@ -1,0 +1,386 @@
+[
+  {
+    "District": "Barguna",
+    "Division": "Barisal",
+    "Population_Thousands": 882,
+    "Area": 1831
+  },
+  {
+    "District": "Barisal",
+    "Division": "Barisal",
+    "Population_Thousands": 2291,
+    "Area": 2785
+  },
+  {
+    "District": "Bhola",
+    "Division": "Barisal",
+    "Population_Thousands": 1758,
+    "Area": 3403
+  },
+  {
+    "District": "Jhalokati",
+    "Division": "Barisal",
+    "Population_Thousands": 596,
+    "Area": 749
+  },
+  {
+    "District": "Patuakhali",
+    "Division": "Barisal",
+    "Population_Thousands": 1517,
+    "Area": 3221
+  },
+  {
+    "District": "Pirojpur",
+    "Division": "Barisal",
+    "Population_Thousands": 1103,
+    "Area": 1308
+  },
+  {
+    "District": "Bandarban",
+    "Division": "Chittagong",
+    "Population_Thousands": 383,
+    "Area": 4479
+  },
+  {
+    "District": "Brahamanbaria",
+    "Division": "Chittagong",
+    "Population_Thousands": 2808,
+    "Area": 1927
+  },
+  {
+    "District": "Chandpur",
+    "Division": "Chittagong",
+    "Population_Thousands": 2393,
+    "Area": 1704
+  },
+  {
+    "District": "Chittagong",
+    "Division": "Chittagong",
+    "Population_Thousands": 7509,
+    "Area": 5283
+  },
+  {
+    "District": "Comilla",
+    "Division": "Chittagong",
+    "Population_Thousands": 5304,
+    "Area": 3085
+  },
+  {
+    "District": "Cox's Bazar",
+    "Division": "Chittagong",
+    "Population_Thousands": 2275,
+    "Area": 2492
+  },
+  {
+    "District": "Feni",
+    "Division": "Chittagong",
+    "Population_Thousands": 1420,
+    "Area": 928
+  },
+  {
+    "District": "Khagrachhari",
+    "Division": "Chittagong",
+    "Population_Thousands": 608,
+    "Area": 2700
+  },
+  {
+    "District": "Lakshmipur",
+    "Division": "Chittagong",
+    "Population_Thousands": 1711,
+    "Area": 1456
+  },
+  {
+    "District": "Noakhali",
+    "Division": "Chittagong",
+    "Population_Thousands": 3072,
+    "Area": 3601
+  },
+  {
+    "District": "Rangamati",
+    "Division": "Chittagong",
+    "Population_Thousands": 596,
+    "Area": 6116
+  },
+  {
+    "District": "Dhaka",
+    "Division": "Dhaka",
+    "Population_Thousands": 11875,
+    "Area": 1464
+  },
+  {
+    "District": "Faridpur",
+    "Division": "Dhaka",
+    "Population_Thousands": 1867,
+    "Area": 2073
+  },
+  {
+    "District": "Gazipur",
+    "Division": "Dhaka",
+    "Population_Thousands": 3333,
+    "Area": 1800
+  },
+  {
+    "District": "Gopalganj",
+    "Division": "Dhaka",
+    "Population_Thousands": 1149,
+    "Area": 1490
+  },
+  {
+    "District": "Jamalpur",
+    "Division": "Dhaka",
+    "Population_Thousands": 2265,
+    "Area": 2032
+  },
+  {
+    "District": "Kishoreganj",
+    "Division": "Dhaka",
+    "Population_Thousands": 2853,
+    "Area": 2689
+  },
+  {
+    "District": "Madaripur",
+    "Division": "Dhaka",
+    "Population_Thousands": 1149,
+    "Area": 1145
+  },
+  {
+    "District": "Manikganj",
+    "Division": "Dhaka",
+    "Population_Thousands": 1379,
+    "Area": 1379
+  },
+  {
+    "District": "Munshiganj",
+    "Division": "Dhaka",
+    "Population_Thousands": 1420,
+    "Area": 955
+  },
+  {
+    "District": "Mymensingh",
+    "Division": "Dhaka",
+    "Population_Thousands": 5042,
+    "Area": 4363
+  },
+  {
+    "District": "Narayanganj",
+    "Division": "Dhaka",
+    "Population_Thousands": 2897,
+    "Area": 759
+  },
+  {
+    "District": "Narsingdi",
+    "Division": "Dhaka",
+    "Population_Thousands": 2202,
+    "Area": 1141
+  },
+  {
+    "District": "Netrakona",
+    "Division": "Dhaka",
+    "Population_Thousands": 2207,
+    "Area": 2810
+  },
+  {
+    "District": "Rajbari",
+    "Division": "Dhaka",
+    "Population_Thousands": 1040,
+    "Area": 1119
+  },
+  {
+    "District": "Shariatpur",
+    "Division": "Dhaka",
+    "Population_Thousands": 1146,
+    "Area": 1182
+  },
+  {
+    "District": "Sherpur",
+    "Division": "Dhaka",
+    "Population_Thousands": 1334,
+    "Area": 1364
+  },
+  {
+    "District": "Tangail",
+    "Division": "Dhaka",
+    "Population_Thousands": 3571,
+    "Area": 3414
+  },
+  {
+    "District": "Bagerhat",
+    "Division": "Khulna",
+    "Population_Thousands": 1461,
+    "Area": 3959
+  },
+  {
+    "District": "Chuadanga",
+    "Division": "Khulna",
+    "Population_Thousands": 1123,
+    "Area": 1177
+  },
+  {
+    "District": "Jessore",
+    "Division": "Khulna",
+    "Population_Thousands": 2742,
+    "Area": 2567
+  },
+  {
+    "District": "Jhenaidah",
+    "Division": "Khulna",
+    "Population_Thousands": 1756,
+    "Area": 1961
+  },
+  {
+    "District": "Khulna",
+    "Division": "Khulna",
+    "Population_Thousands": 2294,
+    "Area": 4394
+  },
+  {
+    "District": "Kushtia",
+    "Division": "Khulna",
+    "Population_Thousands": 1933,
+    "Area": 1601
+  },
+  {
+    "District": "Magura",
+    "Division": "Khulna",
+    "Population_Thousands": 913,
+    "Area": 1049
+  },
+  {
+    "District": "Meherpur",
+    "Division": "Khulna",
+    "Population_Thousands": 652,
+    "Area": 579
+  },
+  {
+    "District": "Narail",
+    "Division": "Khulna",
+    "Population_Thousands": 715,
+    "Area": 990
+  },
+  {
+    "District": "Satkhira",
+    "Division": "Khulna",
+    "Population_Thousands": 1973,
+    "Area": 3858
+  },
+  {
+    "District": "Bogra",
+    "Division": "Rajshahi",
+    "Population_Thousands": 3371,
+    "Area": 2920
+  },
+  {
+    "District": "Joypurhat",
+    "Division": "Rajshahi",
+    "Population_Thousands": 909,
+    "Area": 965
+  },
+  {
+    "District": "Naogaon",
+    "Division": "Rajshahi",
+    "Population_Thousands": 2576,
+    "Area": 3436
+  },
+  {
+    "District": "Natore",
+    "Division": "Rajshahi",
+    "Population_Thousands": 1696,
+    "Area": 1896
+  },
+  {
+    "District": "Nawabganj",
+    "Division": "Rajshahi",
+    "Population_Thousands": 1635,
+    "Area": 1703
+  },
+  {
+    "District": "Pabna",
+    "Division": "Rajshahi",
+    "Population_Thousands": 2497,
+    "Area": 2372
+  },
+  {
+    "District": "Rajshahi",
+    "Division": "Rajshahi",
+    "Population_Thousands": 2573,
+    "Area": 2407
+  },
+  {
+    "District": "Sirajganj",
+    "Division": "Rajshahi",
+    "Population_Thousands": 3072,
+    "Area": 2498
+  },
+  {
+    "District": "Dinajpur",
+    "Division": "Rangpur",
+    "Population_Thousands": 2970,
+    "Area": 3438
+  },
+  {
+    "District": "Gaibandha",
+    "Division": "Rangpur",
+    "Population_Thousands": 2349,
+    "Area": 2179
+  },
+  {
+    "District": "Kurigram",
+    "Division": "Rangpur",
+    "Population_Thousands": 2050,
+    "Area": 2296
+  },
+  {
+    "District": "Lalmonirhat",
+    "Division": "Rangpur",
+    "Population_Thousands": 1249,
+    "Area": 1241
+  },
+  {
+    "District": "Nilphamari",
+    "Division": "Rangpur",
+    "Population_Thousands": 1820,
+    "Area": 1580
+  },
+  {
+    "District": "Panchagarh",
+    "Division": "Rangpur",
+    "Population_Thousands": 981,
+    "Area": 1405
+  },
+  {
+    "District": "Rangpur",
+    "Division": "Rangpur",
+    "Population_Thousands": 2866,
+    "Area": 2368
+  },
+  {
+    "District": "Thakurgaon",
+    "Division": "Rangpur",
+    "Population_Thousands": 1380,
+    "Area": 1810
+  },
+  {
+    "District": "Habiganj",
+    "Division": "Sylhet",
+    "Population_Thousands": 2059,
+    "Area": 2637
+  },
+  {
+    "District": "Maulvibazar",
+    "Division": "Sylhet",
+    "Population_Thousands": 1902,
+    "Area": 2799
+  },
+  {
+    "District": "Sunamganj",
+    "Division": "Sylhet",
+    "Population_Thousands": 2443,
+    "Area": 3670
+  },
+  {
+    "District": "Sylhet",
+    "Division": "Sylhet",
+    "Population_Thousands": 3404,
+    "Area": 3490
+  }
+]
