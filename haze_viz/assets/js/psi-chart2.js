@@ -312,7 +312,7 @@
         var textLabel = L.marker(latlng, {
             icon: L.divIcon({
                 className: 'map-labels',   // Set class for CSS styling
-                html: reading
+                html: computeEstimatedPSI(reading)
             }),
             zIndexOffset: 100     // Make appear above other map features
         });
