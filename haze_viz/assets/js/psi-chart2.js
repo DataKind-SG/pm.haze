@@ -129,7 +129,7 @@
             });
             
             createChart("chartContainer", jsonWest.timestamp, jsonEast.timestamp, jsonNorth.timestamp, jsonSouth.timestamp, jsonCentral.timestamp);
-            drawMap(values24h[0]);
+            drawMap(values24h[22]);
             
         });
     }
@@ -304,7 +304,7 @@
     
         var latlng = locations[i].latlng;
         var region = locations[i].id;
-        var reading = data.readings.pm25_one_hourly[region];
+        var reading = computeEstimatedPSI(data.readings.pm25_one_hourly[region]);
         var rad = ($("#map").width() < 480) ?  10 : 30;
      
         stations.push(L.circleMarker(latlng,{radius: rad + reading/5, color:getColor(reading)}));
@@ -312,7 +312,7 @@
         var textLabel = L.marker(latlng, {
             icon: L.divIcon({
                 className: 'map-labels',   // Set class for CSS styling
-                html: computeEstimatedPSI(reading)
+                html: reading
             }),
             zIndexOffset: 100     // Make appear above other map features
         });
