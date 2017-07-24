@@ -245,15 +245,25 @@
     
     function drawMap(data) {
     //Initialize global variables
-    var mapWidth = $("#map").width(),
-        mapHeight = 0.4 * mapWidth;
+    var mapWidth = $("#map").width();
 
-    $("#map").css("height", mapHeight);
+    // Mobile
+    if ($("#map").width() < 768) {
+        var mapHeight = 0.5 * mapWidth;
+    // Tablets and small desktops
+    }else if ($("#map").width() < 1200) {
+        var mapHeight = 0.4 * mapWidth;
+    // Large desktops
+    } else {
+        var mapHeight = 0.3 * mapWidth;
+    }
+    
+    $("#map").css("width", mapWidth).css("height", mapHeight);
             
     var maxBounds = L.latLngBounds(L.latLng(1.461, 103.51), L.latLng(1.209, 104.11));
-    
-    // Mobile
-    if ($(window).width() < 768) {
+
+    // Need to fix CSS properties before leaflet map properties
+    if ($("#map").width() < 768) {
         var leafletMap = L.map('map',{
             center: [1.347833, 103.809357],
             zoom: 10,
@@ -261,9 +271,7 @@
             minZoom: 10,
             zoomControl: false,
         }).setMaxBounds(maxBounds);
-        
-    // Tablets and small desktops
-    }else if ($(window).width() < 1200) {
+    }else if ($("#map").width() < 1200) {
         var leafletMap = L.map('map',{
             center: [1.347833, 103.809357],
             zoom: 11,
@@ -271,8 +279,6 @@
             minZoom: 11,
             zoomControl: false,
         }).setMaxBounds(maxBounds);
-    
-    // Large desktops
     } else {
         var leafletMap = L.map('map',{
             center: [1.347833, 103.809357],
@@ -283,7 +289,7 @@
         }).setMaxBounds(maxBounds);
     }
     
-    // Access token is Hishab's access token to Mapbox
+    // Access token is Hishab's access token to Mapbox - to change!
     L.mapbox.accessToken = 'pk.eyJ1IjoieWl0Y2giLCJhIjoiY2oydDBid2hrMDA5bzJxcGY0OHB0aXZ3eiJ9.rxD7qRDKOyQ-_lcN6oTnkw';
     
     var mapLayer = L.tileLayer('https://api.mapbox.com/v4/mapbox.light/{z}/{x}/{y}.png?access_token=' + L.mapbox.accessToken, {
