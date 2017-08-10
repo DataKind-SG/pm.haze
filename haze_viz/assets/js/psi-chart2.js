@@ -66,7 +66,7 @@
             $.ajax({
                 type: "GET",
                 url: "https://api.data.gov.sg/v1/environment/pm25?date=" + today,
-                headers: { "api-key": "***REMOVED***" },
+                headers: { "api-key": "your-api-key" },
                 processData: false,
                 error: function (xhr, ajaxOptions, thrownError){
                     console.log(xhr.status);
@@ -79,7 +79,7 @@
             $.ajax({
                 type: "GET",
                 url: "https://api.data.gov.sg/v1/environment/pm25?date=" + yesterday,
-                headers: { "api-key": "***REMOVED***" },
+                headers: { "api-key": "your-api-key" },
                 processData: false,
                 error: function (xhr, ajaxOptions, thrownError){
                     console.log(xhr.status);
